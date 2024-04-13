@@ -6,21 +6,13 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
-  bool loading = true;
+    var isMore = true.obs;
 
   @override
   void onInit() {
-    //  getData();
     getUserData();
     super.onInit();
   }
-
-  // Future<http.Response> getData() async {
-  //   http.Response response = await http.get(
-  //     Uri.parse(API.crouseUrl),
-  //   );
-  //   return response;
-  // }
 
   Future<CourseModel> getUserData() async {
     http.Response response = await http.get(
@@ -28,22 +20,19 @@ class HomeController extends GetxController {
     );
 
     try {
-      
-
       if (response.statusCode == 200) {
-        
-
         final data = jsonDecode(response.body);
-        
-      return  CourseModel.fromJson(data)
-         
-        
-        ;
+
+        return CourseModel.fromJson(data);
       } else {
         return CourseModel.fromJson({"dasf": "dasf"});
       }
     } catch (exception) {
       return CourseModel.fromJson({});
     }
+  }
+
+  showMore() {
+    isMore.value = !isMore.value;
   }
 }

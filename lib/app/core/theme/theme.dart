@@ -143,7 +143,7 @@ class MaterialTheme {
       onError: Color(0xffffffff),
       errorContainer: Color(0xff8c0009),
       onErrorContainer: Color(0xffffffff),
-      background: Color(0xfff5fafb),
+      background: Color(0xffffffff),
       onBackground: Color(0xff171d1e),
       surface: Color(0xfff5fafb),
       onSurface: Color(0xff000000),
@@ -185,7 +185,7 @@ class MaterialTheme {
   static MaterialScheme darkScheme() {
     return const MaterialScheme(
       brightness: Brightness.dark,
-  primary: Color(0xff7455F7),
+      primary: Color(0xff7455F7),
       surfaceTint: Color(0xff82d3e0),
       onPrimary: Color(0xff00363d),
       primaryContainer: Color(0xff004f58),
@@ -245,7 +245,7 @@ class MaterialTheme {
     return const MaterialScheme(
       brightness: Brightness.dark,
       primary: Color(0xff7455F7),
-      surfaceTint: Color(0xff82d3e0),
+      surfaceTint: Color(0xffffffff),
       onPrimary: Color(0xff001a1d),
       primaryContainer: Color(0xff499ca9),
       onPrimaryContainer: Color(0xff000000),
@@ -262,7 +262,7 @@ class MaterialTheme {
       errorContainer: Color(0xffff5449),
       onErrorContainer: Color(0xff000000),
       background: Color(0xff0e1415),
-      onBackground: Color(0xffdee3e5),
+      onBackground: Color(0xfff6fcfd),
       surface: Color(0xff0e1415),
       onSurface: Color(0xfff6fcfd),
       surfaceVariant: Color(0xff3f484a),

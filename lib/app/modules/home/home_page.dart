@@ -50,281 +50,272 @@ class HomePage extends GetView<HomeController> {
                   left: -5,
                   right: -5,
                   child: StreamBuilder(
-                      stream: controller.getUserData().asStream(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          final data = snapshot.data!.data!;
-                          return SizedBox(
-                            width: MediaQuery.of(context).size.width,
+                    stream: controller.getUserData().asStream(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final data = snapshot.data!.data!;
+                        return SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          child: SizedBox(
                             height: MediaQuery.of(context).size.height,
-                            child: SizedBox(
-                              height: MediaQuery.of(context).size.height,
-                              width: MediaQuery.of(context).size.width,
-                              child: Card(
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                  ),
+                            width: MediaQuery.of(context).size.width,
+                            child: Card(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
-                                color: Colors.white,
-                                child: SizedBox(
-                                  height: MediaQuery.of(context).size.height,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 20),
-                                    child: SingleChildScrollView(
-                                      primary: true,
-                                      physics: const BouncingScrollPhysics(),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Image.network(
-                                            data.thumb.toString(),
-                                            height: 160,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                          ),
-                                          const Gap(10),
-                                          Text(
-                                            textAlign: TextAlign.start,
-                                            data.title.toString(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium
-                                                ?.copyWith(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: const Color(
-                                                        0xff333333)),
-                                          ),
-                                          const Gap(10),
-                                          Text(
-                                            textAlign: TextAlign.start,
-                                            data.subTitle.toString(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall
-                                                ?.copyWith(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: const Color(
-                                                        0xff666666)),
-                                          ),
-                                          const Gap(20),
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                textAlign: TextAlign.start,
-                                                "4.5",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge
-                                                    ?.copyWith(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        color: const Color(
-                                                            0xff333333)),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                              color: Colors.white,
+                              child: SizedBox(
+                                height: MediaQuery.of(context).size.height,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 20),
+                                  child: SingleChildScrollView(
+                                    primary: true,
+                                    physics: const BouncingScrollPhysics(),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Image.network(
+                                          data.thumb.toString(),
+                                          height: 160,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                        ),
+                                        const Gap(10),
+                                        Text(
+                                          textAlign: TextAlign.start,
+                                          data.title.toString(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium
+                                              ?.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
+                                                  color:
+                                                      const Color(0xff333333)),
+                                        ),
+                                        const Gap(10),
+                                        Text(
+                                          textAlign: TextAlign.start,
+                                          data.subTitle.toString(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall
+                                              ?.copyWith(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color:
+                                                      const Color(0xff666666)),
+                                        ),
+                                        const Gap(20),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              textAlign: TextAlign.start,
+                                              "4.5",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.copyWith(
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: const Color(
+                                                          0xff333333)),
+                                            ),
+                                            const Gap(5),
+                                            SizedBox(
+                                              height: 10.0,
+                                              width: 62.49,
+                                              child: ListView.builder(
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                itemCount: 5,
+                                                shrinkWrap: true,
+                                                physics:
+                                                    const NeverScrollableScrollPhysics(),
+                                                itemBuilder: (context, index) {
+                                                  return const Icon(
+                                                    Icons.star,
+                                                    color: Color(0xffFDCC0D),
+                                                    size: 10,
+                                                  );
+                                                },
                                               ),
-                                              const Gap(5),
-                                              SizedBox(
-                                                height: 10.0,
-                                                width: 62.49,
-                                                child: ListView.builder(
-                                                  scrollDirection:
-                                                      Axis.horizontal,
-                                                  itemCount: 5,
-                                                  shrinkWrap: true,
-                                                  physics:
-                                                      const NeverScrollableScrollPhysics(),
-                                                  itemBuilder:
-                                                      (context, index) {
-                                                    return const Icon(
-                                                      Icons.star,
-                                                      color: Color(0xffFDCC0D),
-                                                      size: 10,
-                                                    );
-                                                  },
-                                                ),
-                                              ),
-                                              Text(
-                                                textAlign: TextAlign.start,
-                                                "(2500)",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge
-                                                    ?.copyWith(
-                                                        fontSize: 10,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                        color: const Color(
-                                                            0xff999999)),
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            textAlign: TextAlign.start,
-                                            "9,591 students",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: const Color(
-                                                        0xff666666)),
-                                          ),
-                                          const Gap(20),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                textAlign: TextAlign.start,
-                                                "Mentor",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge
-                                                    ?.copyWith(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        color: const Color(
-                                                            0xff666666)),
-                                              ),
-                                              const Gap(5),
-                                              Text(
-                                                textAlign: TextAlign.start,
-                                                "Ashutosh Pawar",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge
-                                                    ?.copyWith(
+                                            ),
+                                            Text(
+                                              textAlign: TextAlign.start,
+                                              "(2500)",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.copyWith(
+                                                      fontSize: 10,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      color: const Color(
+                                                          0xff999999)),
+                                            ),
+                                          ],
+                                        ),
+                                        Text(
+                                          textAlign: TextAlign.start,
+                                          "9,591 students",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      const Color(0xff666666)),
+                                        ),
+                                        const Gap(20),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              textAlign: TextAlign.start,
+                                              "Mentor",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.copyWith(
                                                       fontSize: 12,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       color: const Color(
-                                                          0xff7455F7),
-                                                    ),
+                                                          0xff666666)),
+                                            ),
+                                            const Gap(5),
+                                            Text(
+                                              textAlign: TextAlign.start,
+                                              "Ashutosh Pawar",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.copyWith(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w500,
+                                                    color:
+                                                        const Color(0xff7455F7),
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                        const Gap(20),
+                                        const CustomList(
+                                          title: 'Last update 06/2023',
+                                          image: Images.appointment,
+                                        ),
+                                        const CustomList(
+                                          title: 'English',
+                                          image: Images.world,
+                                        ),
+                                        const Gap(20),
+                                        Text(
+                                          textAlign: TextAlign.start,
+                                          "BDT ${data.price}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                color: const Color(0xff666666),
                                               ),
-                                            ],
-                                          ),
-                                          const Gap(20),
-                                          const CustomList(
-                                            title: 'Last update 06/2023',
-                                            image: Images.appointment,
-                                          ),
-                                          const CustomList(
-                                            title: 'English',
-                                            image: Images.world,
-                                          ),
-                                          const Gap(20),
-                                          Text(
-                                            textAlign: TextAlign.start,
-                                            "BDT ${data.price}",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w700,
-                                                  color:
-                                                      const Color(0xff666666),
-                                                ),
-                                          ),
-                                          const Gap(20),
-                                          CustomButton(
-                                            title: 'Buy now',
-                                            sizeH: 46,
-                                            sizeW: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            colorBorder:
-                                                const Color(0xff7455F7),
-                                            colorButton:
-                                                const Color(0xff7455F7),
-                                            colorText: const Color(0xffffffff),
-                                          ),
-                                          const Gap(20),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              CustomButton(
-                                                title: 'Add to cart',
-                                                sizeH: 45,
-                                                sizeW: MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    2.35,
-                                                colorBorder:
-                                                    const Color(0xff7455F7),
-                                                colorText:
-                                                    const Color(0xff7455F7),
-                                                colorButton:
-                                                    const Color(0xffffffff),
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w500,
+                                        ),
+                                        const Gap(20),
+                                        CustomButton(
+                                          title: 'Buy now',
+                                          sizeH: 46,
+                                          sizeW:
+                                              MediaQuery.of(context).size.width,
+                                          colorBorder: const Color(0xff7455F7),
+                                          colorButton: const Color(0xff7455F7),
+                                          colorText: const Color(0xffffffff),
+                                        ),
+                                        const Gap(20),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            CustomButton(
+                                              title: 'Add to cart',
+                                              sizeH: 45,
+                                              sizeW: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  2.35,
+                                              colorBorder:
+                                                  const Color(0xff7455F7),
+                                              colorText:
+                                                  const Color(0xff7455F7),
+                                              colorButton:
+                                                  const Color(0xffffffff),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            CustomButton(
+                                              title: 'Add to wishlist',
+                                              sizeH: 45,
+                                              sizeW: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  2.35,
+                                              colorBorder:
+                                                  const Color(0xff7455F7),
+                                              colorText:
+                                                  const Color(0xff7455F7),
+                                              colorButton:
+                                                  const Color(0xffffffff),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ],
+                                        ),
+                                        const Gap(20),
+                                        Text(
+                                          textAlign: TextAlign.start,
+                                          "What you’ll learn ",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w600,
+                                                color: const Color(0xff333333),
                                               ),
-                                              CustomButton(
-                                                title: 'Add to wishlist',
-                                                sizeH: 45,
-                                                sizeW: MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    2.35,
-                                                colorBorder:
-                                                    const Color(0xff7455F7),
-                                                colorText:
-                                                    const Color(0xff7455F7),
-                                                colorButton:
-                                                    const Color(0xffffffff),
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ],
-                                          ),
-                                          const Gap(20),
-                                          Text(
-                                            textAlign: TextAlign.start,
-                                            "What you’ll learn ",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w600,
-                                                  color:
-                                                      const Color(0xff333333),
-                                                ),
-                                          ),
-                                          const Gap(10),
-                                          const CustomListTile(
-                                            title:
-                                                "Learn Django From Scratch \$ Gain Essential Skills To Apply For Junior Django Developer Positions",
-                                          ),
-                                          const CustomListTile(
-                                              title:
-                                                  "Learn Django Right From The Basic Like Creating A Django Project, Understanding Models, Making Migrations,Running Django Aapl cations On Local Server"),
-                                          const CustomListTile(
-                                              title:
-                                                  "Learn How To Build Web Applications Using Django & Python"),
-                                          const CustomListTile(
-                                              title:
-                                                  "Learn How To Perform Authentication & Authorization In Your Django Web Applications "),
-                                          Text(
+                                        ),
+                                        const Gap(10),
+                                        ListView.builder(
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: data.moreCourse!.length,
+                                            shrinkWrap: true,
+                                            itemBuilder: (context, index) {
+                                              return CustomListTile(
+                                                title: data
+                                                    .moreCourse![index].title
+                                                    .toString(),
+                                              );
+                                            }),
+                                        InkWell(
+                                          onTap: () {},
+                                          child: Text(
                                             "Show more",
                                             textAlign: TextAlign.start,
                                             style: Theme.of(context)
@@ -338,213 +329,209 @@ class HomePage extends GetView<HomeController> {
                                                       .primary,
                                                 ),
                                           ),
-                                          const Gap(20),
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "Course Curriculum ",
-                                                textAlign: TextAlign.start,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge
-                                                    ?.copyWith(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: const Color(
-                                                          0xff333333),
-                                                    ),
-                                              ),
-                                              ListView.builder(
-                                                itemCount:
-                                                    data.sections!.length,
-                                                shrinkWrap: true,
-                                                itemBuilder: (context, index) {
-                                                  return ExpansionTile(
-                                                    
-                                                    shape:
-                                                        const RoundedRectangleBorder(
-                                                            side: BorderSide
-                                                                .none),
-                                                    title: Text(
-                                                      data.sections![index]
-                                                          .topic
+                                        ),
+                                        const Gap(20),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Course Curriculum ",
+                                              textAlign: TextAlign.start,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w600,
+                                                    color:
+                                                        const Color(0xff333333),
+                                                  ),
+                                            ),
+                                            ListView.builder(
+                                              itemCount: data.sections!.length,
+                                              shrinkWrap: true,
+                                              itemBuilder: (context, index) {
+                                                return ExpansionTile(
+                                                  textColor: Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
+                                                  collapsedTextColor:
+                                                      const Color(0xff333333),
+                                                  shape:
+                                                      const RoundedRectangleBorder(
+                                                          side:
+                                                              BorderSide.none),
+                                                  title: Text(
+                                                    data.sections![index].topic
+                                                        .toString(),
+                                                    textAlign: TextAlign.start,
+                                                  ),
+                                                  children: [
+                                                    CustomPlayList(
+                                                      title: data
+                                                          .sections![index]
+                                                          .lessons![0]
+                                                          .videoLinkPath
                                                           .toString(),
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyLarge
-                                                          ?.copyWith(
-                                                              fontSize: 12,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              color: Theme.of(
-                                                                      context)
-                                                                  .colorScheme
-                                                                  .primary),
+                                                      image: Images.play,
                                                     ),
-                                                    children: const [
-                                                      CustomPlayList(
-                                                        // title: data
-                                                        //     .sections![index]
-                                                        //     .lessons![index]
-                                                        //     .lectureTitle
-                                                        //     .toString(),
-                                                        title: "rrrr",
-                                                        image: Images.play,
-                                                      ),
-                                                      CustomPlayList(
-                                                        title:
-                                                            "data.sections![index].lessons![index] .videoLinkPath.toString()",
-                                                        image: Images.play,
-                                                      ),
-                                                      CustomPlayList(
-                                                        title:
-                                                            'Course Introduction',
-                                                        image: Images.vector,
-                                                      ),
-                                                      CustomPlayList(
-                                                        title:
-                                                            'Course Introduction',
-                                                        image: Images.document,
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              ),
-                                              const Gap(20),
-                                              CustomButton(
-                                                  title: "16 more sections",
-                                                  sizeH: 46,
-                                                  sizeW: MediaQuery.of(context)
-                                                      .size
-                                                      .width,
-                                                  colorBorder: Theme.of(context)
+                                                    CustomPlayList(
+                                                      title: data
+                                                          .sections![index]
+                                                          .lessons![0]
+                                                          .videoLinkPath
+                                                          .toString(),
+                                                      image: Images.play,
+                                                    ),
+                                                    CustomPlayList(
+                                                      title: data
+                                                          .sections![index]
+                                                          .lessons![0]
+                                                          .videoSourceType
+                                                          .toString(),
+                                                      image: Images.vector,
+                                                    ),
+                                                    const CustomPlayList(
+                                                      title:
+                                                          'Course Introduction',
+                                                      image: Images.document,
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ),
+                                            const Gap(20),
+                                            CustomButton(
+                                                title: "16 more sections",
+                                                sizeH: 46,
+                                                sizeW: MediaQuery.of(context)
+                                                    .size
+                                                    .width,
+                                                colorBorder: Theme.of(context)
+                                                    .colorScheme
+                                                    .primary,
+                                                colorText: Theme.of(context)
+                                                    .colorScheme
+                                                    .primary,
+                                                colorButton:
+                                                    const Color(0xffffffff),
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500),
+                                          ],
+                                        ),
+                                        const Gap(20),
+                                        Text(
+                                          "This course includes",
+                                          textAlign: TextAlign.start,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      const Color(0xff333333)),
+                                        ),
+                                        const Gap(10),
+                                        const CustomList(
+                                            image: Images.youtube,
+                                            title:
+                                                "34.5 total hours on- demand vedio"),
+                                        const CustomList(
+                                            image: Images.document,
+                                            title: "Support Files"),
+                                        const CustomList(
+                                            image: Images.book,
+                                            title: "10 Articles"),
+                                        const CustomList(
+                                            image: Images.infinity,
+                                            title: "Full lifetime access"),
+                                        const CustomList(
+                                            image: Images.phone,
+                                            title:
+                                                "Access on mobile, desktop, and TV"),
+                                        const CustomList(
+                                            image: Images.document,
+                                            title: "Certificate of Completion"),
+                                        const Gap(50),
+                                        Text(
+                                          "Requirements",
+                                          textAlign: TextAlign.start,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                  color:
+                                                      const Color(0xff333333)),
+                                        ),
+                                        CustomListTile(
+                                            title: data.requirements!),
+                                        const Gap(20),
+                                        Text(
+                                          "Description",
+                                          textAlign: TextAlign.start,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                  color:
+                                                      const Color(0xff333333)),
+                                        ),
+                                        const Gap(10),
+                                        ReadMoreText(
+                                          data.description.toString(),
+                                          trimLines: 7,
+                                          textAlign: TextAlign.start,
+                                          moreStyle: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Theme.of(context)
                                                       .colorScheme
-                                                      .primary,
-                                                  colorText: Theme.of(context)
+                                                      .primary),
+                                          lessStyle: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Theme.of(context)
                                                       .colorScheme
-                                                      .primary,
-                                                  colorButton:
-                                                      const Color(0xffffffff),
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w500),
-                                            ],
-                                          ),
-                                          const Gap(20),
-                                          Text(
-                                            "This course includes",
-                                            textAlign: TextAlign.start,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: const Color(
-                                                        0xff333333)),
-                                          ),
-                                          const Gap(10),
-                                          const CustomList(
-                                              image: Images.youtube,
-                                              title:
-                                                  "34.5 total hours on- demand vedio"),
-                                          const CustomList(
-                                              image: Images.document,
-                                              title: "Support Files"),
-                                          const CustomList(
-                                              image: Images.book,
-                                              title: "10 Articles"),
-                                          const CustomList(
-                                              image: Images.infinity,
-                                              title: "Full lifetime access"),
-                                          const CustomList(
-                                              image: Images.phone,
-                                              title:
-                                                  "Access on mobile, desktop, and TV"),
-                                          const CustomList(
-                                              image: Images.document,
-                                              title:
-                                                  "Certificate of Completion"),
-                                          const Gap(50),
-                                          Text(
-                                            "Requirements",
-                                            textAlign: TextAlign.start,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: const Color(
-                                                        0xff333333)),
-                                          ),
-                                          CustomListTile(
-                                              title: data.requirements!),
-                                          const Gap(20),
-                                          Text(
-                                            "Description",
-                                            textAlign: TextAlign.start,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: const Color(
-                                                        0xff333333)),
-                                          ),
-                                          const Gap(10),
-                                          ReadMoreText(
-                                            data.description.toString(),
-                                            trimLines: 7,
-                                            textAlign: TextAlign.start,
-                                            moreStyle: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Theme.of(context)
-                                                        .colorScheme
-                                                        .primary),
-                                            lessStyle: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Theme.of(context)
-                                                        .colorScheme
-                                                        .primary),
-                                            style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500,
-                                                color: Color(0xff333333)),
-                                            trimCollapsedText: "Show more",
-                                            trimExpandedText: "Show less",
-                                          ),
-                                          const Gap(200),
-                                        ],
-                                      ),
+                                                      .primary),
+                                          style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color(0xff333333)),
+                                          trimCollapsedText: "Show more",
+                                          trimExpandedText: "Show less",
+                                        ),
+                                        const Gap(20),
+                                        const Gap(200),
+                                      ],
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          );
-                        }
-                        return const Center(
-                            child: CircularProgressIndicator(
+                          ),
+                        );
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(
                           color: Colors.white,
-                        ));
-                      }),
+                        ),
+                      );
+                    },
+                  ),
                 )
               ],
             ),
